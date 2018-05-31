@@ -1,0 +1,13 @@
+<form #calcForm="ngForm">
+<input [(ngModel)]="text1" name="fieldOne" required #fieldOne="ngModel">
+<!-- required→入力必須 -->
++
+<input [(ngModel)]="text2" name="fieldTwo" required #fieldTwo="ngModel">
+<button (click)="addAndShow()"
+[disabled]="fieldOne.invalid || fieldTwo.invalid">CALC</button>
+<div>{{result}}</div>
+<div>
+  <span *ngIf="fieldOne.invalid" class="inv">左側のフィールドが空白です</span><br>
+  <span *ngIf="fieldTwo.invalid" class="inv">右側のフィールドが空白です</span>
+</div>
+</form>
